@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NHANQUYEN | Trang web chính thức</title>
+
+<style>
+
+/* GENERAL SETTINGS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+}
+
+/* GLASS NAVBAR */
+
+.navbar {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+
+    margin: 12px auto;
+    width: calc(100% - 40px);
+    max-width: 1400px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 30px;
+
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 18px;
+
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+
+/* LOGO */
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* NAVIGATION LINKS */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+}
+
+.nav-links a,
+.drop-button {
+    display: block;
+    padding: 11px 16px;
+
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 15px;
+
+    border-radius: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    font-family: inherit;
+    transition: 0.25s;
+}
+
+/* HOVER EFFECT */
+
+.nav-links a:hover,
+.drop-button:hover {
+    color: white;
+    background: rgba(255,255,255,0.12);
+}
+
+/* ACTIVE NAVIGATION */
+
+.nav-links a.active {
+    color: white;
+    background: rgba(255,255,255,0.18);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.2);
+}
+
+/* DROPDOWN MENU */
+
+.dropdown {
+    position: relative;
+}
+
+.drop-button::after {
+    content: "⌄";
+    margin-left: 8px;
+}
+
+.dropdown-menu {
+    display: none;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    min-width: 190px;
+    padding: 8px;
+
+    background: rgba(30,41,59,0.92);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+.dropdown.open .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    width: 100%;
+    padding: 12px;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* WEBSITE SECTIONS */
+
+section {
+    min-height: 90vh;
+    padding: 120px 10%;
+    scroll-margin-top: 30px;
+}
+
+section h1 {
+    font-size: clamp(32px, 6vw, 55px);
+    margin-bottom: 20px;
+}
+
+section p {
+    font-size: 18px;
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+/* SECTION BACKGROUNDS */
+
+#home {
+    background: linear-gradient(135deg,#0f172a,#1e3a5f);
+}
+
+#about {
+    background: linear-gradient(135deg,#172554,#312e81);
+}
+
+#services {
+    background: linear-gradient(135deg,#164e63,#0f172a);
+}
+
+#projects {
+    background: linear-gradient(135deg,#312e81,#581c87);
+}
+
+#contact {
+    background: linear-gradient(135deg,#1e293b,#0f172a);
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media(max-width: 750px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3px;
+    }
+
+    .nav-links a,
+    .drop-button {
+        padding: 9px;
+        font-size: 13px;
+    }
+
+    .dropdown-menu {
+        left: auto;
+        right: 0;
+    }
+
+    section {
+        padding: 100px 7%;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION BAR -->
+
+<nav class="navbar">
+
+    <div class="logo">NHANQUYEN</div>
+
+    <ul class="nav-links">
+
+        <!-- HOME -->
+
+        <li>
+            <a href="#home" class="active">
+                Trang chủ
+            </a>
+        </li>
+
+        <!-- ABOUT -->
+
+        <li>
+            <a href="#about">
+                Về chúng tôi
+            </a>
+        </li>
+
+        <!-- SERVICES DROPDOWN -->
+
+        <li class="dropdown">
+
+            <button class="drop-button"
+                    aria-expanded="false">
+                Dịch vụ
+            </button>
+
+            <div class="dropdown-menu">
+
+                <a href="#services">
+                    Tất cả dịch vụ
+                </a>
+
+                <a href="#projects">
+                    Phát triển website
+                </a>
+
+            </div>
+
+        </li>
+
+        <!-- MORE DROPDOWN -->
+
+        <li class="dropdown">
+
+            <button class="drop-button"
+                    aria-expanded="false">
+                Thêm
+            </button>
+
+            <div class="dropdown-menu">
+
+                <a href="#projects">
+                    Dự án
+                </a>
+
+                <a href="#contact">
+                    Liên hệ
+                </a>
+
+            </div>
+
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- HOME SECTION -->
+
+<section id="home">
+
+    <h1>Chào mừng đến với NHANQUYEN</h1>
+
+    <p>
+        Đây là trang chủ chính thức của website NHANQUYEN.
+    </p>
+
+</section>
+
+
+<!-- ABOUT SECTION -->
+
+<section id="about">
+
+    <h1>Về chúng tôi</h1>
+
+    <p>
+        Tìm hiểu thêm về website và người sáng lập.
+    </p>
+
+</section>
+
+
+<!-- SERVICES SECTION -->
+
+<section id="services">
+
+    <h1>Dịch vụ của chúng tôi</h1>
+
+    <p>
+        Khám phá các dịch vụ có trên website.
+    </p>
+
+</section>
+
+
+<!-- PROJECTS SECTION -->
+
+<section id="projects">
+
+    <h1>Tin tức</h1>
+
+    <p>
+        Những tin về Nhân quyền Việt Nam & Thế giới mới nhất
+    </p>
+
+</section>
+
+
+<!-- CONTACT SECTION -->
+
+<section id="contact">
+
+    <h1>Liên hệ</h1>
+
+    <p>
+        Liên hệ với chúng tôi tại số điện thoại: +84 916 048 478
+    </p>
+
+</section>
+
+
+<script>
+
+/* DROPDOWN MENU */
+
+const dropdowns = document.querySelectorAll(".dropdown");
+
+dropdowns.forEach(dropdown => {
+
+    const button = dropdown.querySelector(".drop-button");
+
+    button.addEventListener("click", () => {
+
+        const isOpen = dropdown.classList.contains("open");
+
+        dropdowns.forEach(item => {
+
+            item.classList.remove("open");
+
+            item.querySelector(".drop-button")
+                .setAttribute("aria-expanded", "false");
+
+        });
+
+        if (!isOpen) {
+
+            dropdown.classList.add("open");
+
+            button.setAttribute("aria-expanded", "true");
+
+        }
+
+    });
+
+});
+
+
+/* CLOSE DROPDOWNS WHEN CLICKING OUTSIDE */
+
+document.addEventListener("click", event => {
+
+    if (!event.target.closest(".dropdown")) {
+
+        dropdowns.forEach(dropdown => {
+
+            dropdown.classList.remove("open");
+
+            dropdown.querySelector(".drop-button")
+                .setAttribute("aria-expanded", "false");
+
+        });
+
+    }
+
+});
+
+
+/* ACTIVE NAVIGATION */
+
+const sections = document.querySelectorAll("section");
+
+const navLinks = document.querySelectorAll(
+    '.nav-links a[href^="#"]'
+);
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            const currentId = entry.target.id;
+
+            navLinks.forEach(link => {
+
+                link.classList.toggle(
+                    "active",
+                    link.getAttribute("href") === "#" + currentId
+                );
+
+            });
+
+        }
+
+    });
+
+}, {
+
+    rootMargin: "-25% 0px -65% 0px"
+
+});
+
+sections.forEach(section => {
+
+    observer.observe(section);
+
+});
+
+</script>
+
+</body>
+</html>
